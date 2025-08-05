@@ -140,7 +140,7 @@ const verifyOtp = async (req, res) => {
     findUser.otp = 0
     await findUser.save()
         .then(() => {
-            return res.send({ status: 1, msg: "Password Rest Successfully" })
+            return res.send({ status: 1, msg: "Password Reset Successfully" })
         })
         .catch((err) => {
             return res.send({ status: 0, msg: err.message })
@@ -148,4 +148,5 @@ const verifyOtp = async (req, res) => {
 
 
 }
+
 module.exports = { register, login, logout,getData,sendOtp,verifyOtp }
