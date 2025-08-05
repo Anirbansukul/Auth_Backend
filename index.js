@@ -1,0 +1,15 @@
+const express=require("express")
+const cors=require("cors")
+require("dotenv").config()
+const cp=require("cookie-parser")
+const mongoConnect = require("./MongoDB")
+const  route  = require("./routes/User.routes")
+const app=express()
+app.use(express.json())
+app.use(cp())
+app.use(cors())
+app.use('/api/user',route)
+mongoConnect()
+app.listen(process.env.PORT,()=>{
+    console.log(`Server run on port ${process.env.PORT}`);
+})
